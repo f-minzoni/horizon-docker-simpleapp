@@ -17,9 +17,7 @@ pageRouter.get('*', (req, res, next) => {
 });
 
 app.use('/', pageRouter);
-
 app.use('/public', express.static(PATH.resolve(__dirname, ROOT, 'public')));
-
 
 const http_server = app.listen(8181);
 const options = {
