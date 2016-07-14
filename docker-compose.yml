@@ -7,7 +7,7 @@ rethinkdb:
     - data/:/data
 horizon:
   image: rethinkdb/horizon
-  command: su -s /bin/sh horizon -c "hz serve --connect rethinkdb:28015 --bind all /usr/app"
+  command: su -s /bin/sh horizon -c "hz serve --connect rethinkdb:28015 --serve-static ./src/public --bind all /usr/app"
   volumes:
     - ./:/usr/app
   links:

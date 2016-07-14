@@ -8,16 +8,7 @@ const ROOT = '.';
 
 const pageRouter = express.Router();
 
-pageRouter.get('*', (req, res, next) => {
-    console.log(req.url);
-    if(req.url.indexOf('/public') < 0) {
-        req.url = '/public/index.html';    
-    }
-    next();
-});
-
-app.use('/', pageRouter);
-app.use('/public', express.static(PATH.resolve(__dirname, ROOT, 'public')));
+app.use('/', express.static(PATH.resolve(__dirname, ROOT, 'public')));
 
 const http_server = app.listen(8181);
 const options = {
